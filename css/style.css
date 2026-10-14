@@ -1,0 +1,834 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #14291f;
+    color: #fff8ed;
+}
+
+.abertura {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 40px 20px;
+
+
+
+background:
+    linear-gradient(
+        rgba(7, 25, 14, 0.35),
+        rgba(7, 25, 14, 0.50)
+    ),
+    url("../img/floresta.jpg") center center / cover no-repeat;
+
+}
+
+.abertura::before,
+.abertura::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(220, 180, 104, 0.07);
+    filter: blur(35px);
+    pointer-events: none;
+}
+
+.abertura::before {
+    top: 5%;
+    left: -120px;
+}
+
+.abertura::after {
+    right: -120px;
+    bottom: 5%;
+    
+}
+
+
+.conteudo-abertura {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 38px;
+    border: 1px solid rgba(246, 220, 166, 0.45);
+    border-radius: 35px;
+    background: rgba(15, 36, 27, 0.78);
+    box-shadow: 0 0 55px rgba(0, 0, 0, 0.2);
+    animation: aparecer 1.2s ease both;
+}
+
+.texto-abertura {
+    min-width: 0;
+    text-align: center;
+}
+
+.foto-cecilia {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    justify-self: center;
+    padding: 9px;
+    border: 1px solid #e8c98c;
+    border-radius: 180px 180px 22px 22px;
+    background: rgba(232, 201, 140, 0.12);
+    box-shadow: 0 0 35px rgba(232, 201, 140, 0.12);
+    animation: aparecer 1.5s ease both;
+    
+}
+
+.foto-cecilia img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 170px 170px 15px 15px;    
+    animation: zoom-foto 1.4s ease-out both;
+    transition: filter 0.4s ease, transform 0.4s ease;
+
+
+}
+
+.brilho-foto {
+    position: absolute;
+    top: 12%;
+    right: -10px;
+    color: #f6dfaa;
+    font-size: 30px;
+    animation: brilhar 2.5s ease-in-out infinite;
+}
+
+
+.sobretitulo {
+    color: #e8c98c;
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+
+.coroa {
+    color: #e8c98c;
+    font-size: 30px;
+    margin-top: 22px;
+    animation: brilhar 2.5s ease-in-out infinite;
+}
+
+h1,
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+}
+
+h1 {
+    margin-top: 12px;
+    color: #fff0d5;
+    font-size: clamp(38px, 8vw, 58px);
+    line-height: 1.05;
+}
+
+.subtitulo {
+    max-width: 300px;
+    margin: 20px auto;
+    color: #e4e7d8;
+    font-size: 13px;
+    line-height: 1.9;
+    font-weight: 300;
+}
+
+.idade {
+    margin: 22px auto;
+    color: #f0d6a0;
+}
+
+.idade span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    line-height: 1;
+}
+
+.idade p {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+#botao-entrar {
+    margin-top: 12px;
+    padding: 14px 26px;
+    border: 1px solid #f1d7a3;
+    border-radius: 30px;
+    background: #a8323e;
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+
+#botao-entrar:hover {
+    background: #c44751;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(232, 201, 140, 0.3);
+}
+
+#botao-entrar:active {
+    transform: scale(0.97);
+}
+
+#botao-entrar:focus-visible {
+    outline: 2px solid #f6dfaa;
+    outline-offset: 4px;
+}
+
+
+#botao-entrar span {
+    margin-left: 8px;
+}
+
+.rodape-abertura {
+    margin-top: 25px;
+    color: #d7ddcf;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.decoracao {
+    position: absolute;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+}
+
+.lua {
+    top: 8%;
+    right: 12%;
+    color: #f0d6a0;
+    font-size: 60px;
+    animation: flutuar 5s ease-in-out infinite;
+}
+
+.estrela {
+    color: #f6dfaa;
+    animation: brilhar 3s ease-in-out infinite;
+}
+
+.estrela-1 {
+    top: 23%;
+    left: 12%;
+    font-size: 30px;
+}
+
+.estrela-2 {
+    right: 15%;
+    bottom: 22%;
+    font-size: 38px;
+    animation-delay: 1s;
+}
+
+.cogumelo {
+    bottom: 7%;
+    left: 8%;
+    font-size: 45px;
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+.maca {
+    top: 12%;
+    left: 10%;
+    font-size: 36px;
+    animation: flutuar 4.5s ease-in-out infinite;
+}
+
+.convite {
+    padding: 85px 20px 60px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at top, #35553c, transparent 65%),
+        #14291f;
+}
+
+.convite h2 {
+    margin-top: 15px;
+    color: #fff0d5;
+    font-size: clamp(36px, 7vw, 48px);
+}
+
+.mensagem {
+    max-width: 540px;
+    margin: 20px auto 35px;
+    color: #e4e7d8;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.informacoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.item-info {
+    padding: 25px 12px;
+    border: 1px solid rgba(246, 220, 166, 0.35);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.045);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.item-info:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.item-info > span {
+    font-size: 27px;
+}
+
+.item-info h3 {
+    margin: 12px 0 8px;
+    color: #e8c98c;
+    font-size: 14px;
+}
+
+.item-info p {
+    color: #fff8ed;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.frase-final {
+    margin: 35px auto 20px;
+    color: #f0d6a0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 15px;
+    color: #e8c98c;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes brilhar {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@media (max-width: 600px) {
+    .conteudo-abertura {
+        padding: 34px 18px;
+    }
+
+    .sobretitulo {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .lua {
+        top: 4%;
+        right: 7%;
+        font-size: 45px;
+    }
+
+    .maca {
+        top: 9%;
+        left: 5%;
+        font-size: 28px;
+    }
+
+    .cogumelo {
+        bottom: 3%;
+        left: 4%;
+        font-size: 32px;
+    }
+
+    .informacoes {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+    }
+
+    .item-info {
+        padding: 20px 12px;
+    }
+
+    .convite {
+        padding-top: 65px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@keyframes zoom-foto {
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.foto-cecilia:hover img {
+    transform: scale(1.025);
+    filter: brightness(1.06);
+}
+
+.texto-abertura > * {
+    animation: texto-surgindo 0.8s ease-out both;
+}
+
+.texto-abertura > *:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.texto-abertura > *:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.texto-abertura > *:nth-child(3) {
+    animation-delay: 0.45s;
+}
+
+.texto-abertura > *:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.texto-abertura > *:nth-child(5) {
+    animation-delay: 0.75s;
+}
+
+.texto-abertura > *:nth-child(6) {
+    animation-delay: 0.9s;
+}
+
+.texto-abertura > *:nth-child(7) {
+    animation-delay: 1.05s;
+}
+
+@keyframes texto-surgindo {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Camada dos vagalumes */
+.particulas {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Aparência de cada vagalume */
+.particulas span {
+    position: absolute;
+    bottom: -12px;
+    left: var(--posicao);
+
+    width: var(--tamanho, 5px);
+    height: var(--tamanho, 5px);
+
+    border-radius: 50%;
+    background: #fff6b0;
+
+    box-shadow:
+        0 0 5px 2px rgba(255, 239, 150, 0.85),
+        0 0 12px 4px rgba(255, 205, 92, 0.45),
+        0 0 22px 6px rgba(255, 180, 60, 0.2);
+
+    opacity: 0;
+
+    animation:
+        vagalume-voando var(--duracao) linear infinite,
+        vagalume-brilhando 1.8s ease-in-out infinite alternate;
+
+    animation-delay: var(--atraso), var(--atraso);
+}
+
+/* O vagalume sobe e balança pelo cenário */
+@keyframes vagalume-voando {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(24px, -25vh) scale(1);
+    }
+
+    55% {
+        transform: translate(-18px, -55vh) scale(0.85);
+    }
+
+    78% {
+        transform: translate(22px, -80vh) scale(1.1);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: translate(-12px, -110vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Luz pulsando suavemente */
+@keyframes vagalume-brilhando {
+    from {
+        filter: brightness(0.7);
+    }
+
+    to {
+        filter: brightness(1.7);
+    }
+}
+
+/* Posições, tamanhos e tempos diferentes */
+.particulas span:nth-child(1) {
+    --posicao: 5%;
+    --tamanho: 4px;
+    --duracao: 9s;
+    --atraso: 0s;
+}
+
+.particulas span:nth-child(2) {
+    --posicao: 18%;
+    --tamanho: 6px;
+    --duracao: 12s;
+    --atraso: 2s;
+}
+
+.particulas span:nth-child(3) {
+    --posicao: 32%;
+    --tamanho: 3px;
+    --duracao: 8s;
+    --atraso: 4s;
+}
+
+.particulas span:nth-child(4) {
+    --posicao: 45%;
+    --tamanho: 5px;
+    --duracao: 11s;
+    --atraso: 1s;
+}
+
+.particulas span:nth-child(5) {
+    --posicao: 59%;
+    --tamanho: 4px;
+    --duracao: 10s;
+    --atraso: 5s;
+}
+
+.particulas span:nth-child(6) {
+    --posicao: 72%;
+    --tamanho: 6px;
+    --duracao: 13s;
+    --atraso: 3s;
+}
+
+.particulas span:nth-child(7) {
+    --posicao: 86%;
+    --tamanho: 3px;
+    --duracao: 9s;
+    --atraso: 6s;
+}
+
+.particulas span:nth-child(8) {
+    --posicao: 95%;
+    --tamanho: 5px;
+    --duracao: 12s;
+    --atraso: 4.5s;
+}
+
+
+@keyframes luz-flutuante {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.6);
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1.3);
+    }
+}
+
+@keyframes floresta-viva {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 60%;
+    }
+
+    100% {
+        background-position: 20% 100%;
+    }
+}
+
+.foto-cecilia {
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.foto-cecilia::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 45%;
+    height: 200%;
+    transform: rotate(22deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 240, 190, 0.35),
+        transparent
+    );
+    pointer-events: none;
+    animation: reflexo-magico 6s ease-in-out infinite;
+}
+
+@keyframes reflexo-magico {
+    0%, 15% {
+        left: -75%;
+    }
+
+    65%, 100% {
+        left: 140%;
+    }
+}
+.particulas {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Vagalumes espalhados pela tela inteira */
+.particulas {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    z-index: 99999 !important;
+}
+
+.particulas span {
+    position: absolute !important;
+    display: block !important;
+
+    left: 0;
+    top: 0;
+    bottom: auto !important;
+
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 50% !important;
+
+    background: #fff1a8 !important;
+    box-shadow:
+        0 0 6px 2px rgba(255, 225, 142, 0.65),
+        0 0 14px 4px rgba(246, 191, 91, 0.35) !important;
+
+    opacity: 0.9 !important;
+
+    animation:
+        voo-horizontal 24s linear infinite,
+        voo-ziguezague 7s ease-in-out infinite alternate,
+        brilho-vagalume 3s ease-in-out infinite alternate !important;
+
+    animation-delay:
+        var(--atraso),
+        var(--atraso),
+        var(--atraso) !important;
+}
+
+/* Movimento lento da esquerda para a direita */
+@keyframes voo-horizontal {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: calc(100% - 6px);
+    }
+}
+
+/* Zigue-zague entre o topo, o meio e a parte inferior */
+@keyframes voo-ziguezague {
+    0%   { top: 8%; }
+    20%  { top: 72%; }
+    40%  { top: 30%; }
+    60%  { top: 88%; }
+    80%  { top: 15%; }
+    100% { top: 60%; }
+}
+
+/* Brilho suave */
+@keyframes brilho-vagalume {
+    from {
+        opacity: 0.35;
+        filter: brightness(0.8);
+    }
+    to {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+}
+
+/* Metade voa na direção contrária */
+.particulas span:nth-child(even) {
+    animation-direction: reverse, alternate, alternate !important;
+}
+
+/* Posições e velocidades variadas */
+.particulas span:nth-child(1) {
+    --atraso: 0s;
+    animation-duration: 25s, 8s, 3s !important;
+}
+.particulas span:nth-child(2) {
+    --atraso: -8s;
+    animation-duration: 30s, 11s, 4s !important;
+}
+.particulas span:nth-child(3) {
+    --atraso: -15s;
+    animation-duration: 22s, 9s, 3.5s !important;
+}
+.particulas span:nth-child(4) {
+    --atraso: -5s;
+    animation-duration: 28s, 12s, 4s !important;
+}
+.particulas span:nth-child(5) {
+    --atraso: -18s;
+    animation-duration: 32s, 10s, 3s !important;
+}
+.particulas span:nth-child(6) {
+    --atraso: -12s;
+    animation-duration: 26s, 7s, 4.5s !important;
+}
+.particulas span:nth-child(7) {
+    --atraso: -20s;
+    animation-duration: 29s, 13s, 3.5s !important;
+}
+.particulas span:nth-child(8) {
+    --atraso: -3s;
+    animation-duration: 24s, 9s, 4s !important;
+}
+
+/* Fundo da segunda parte do convite */
+#detalhes {
+    background:
+        linear-gradient(
+            rgba(7, 25, 14, 0.40),
+            rgba(7, 25, 14, 0.55)
+        ),
+        url("../img/floresta.jpg") center center / cover no-repeat;
+}
+
+
+.informacoes {
+    background: #1b3b2b;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+
+    padding: 25px;
+    border-radius: 18px;
+}
