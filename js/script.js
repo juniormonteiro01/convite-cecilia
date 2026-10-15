@@ -8,3 +8,9 @@ botaoEntrar.addEventListener("click", () => {
         block: "start"
     });
 });
+const musica = document.querySelector("#musica-convite");
+botaoEntrar.addEventListener("click", () => {
+    musica.play().catch((erro) => {
+        console.log("Não foi possível iniciar a música:", erro);
+    });
+});
